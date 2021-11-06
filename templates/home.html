@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en,ar" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Capstone Project</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='Tsunami-favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            ::-webkit-input-placeholder {
+               color: rgb(6, 135, 209);
+               line-height:150px;
+               text-align:center;
+               text-transform: capitalize ;
+               text-decoration: wavy;
+            }
+            :-moz-placeholder { /* Upto Firefox 18, Deprecated in Firefox 19  */
+               color: rgb(6, 135, 209);
+               text-align: center;
+               line-height:150px;
+               text-transform: capitalize ;
+               text-decoration: wavy;  
+            }
+            ::-moz-placeholder {  /* Firefox 19+ */
+               color: rgb(6, 135, 209);
+               text-align: center;
+               line-height:150px;
+               text-transform: capitalize ;
+               text-decoration: wavy;  
+            }
+            :-ms-input-placeholder {  
+               color: rgb(6, 135, 209);
+               text-align: center;
+               line-height:150px;
+               text-transform: capitalize ;
+               text-decoration: wavy;  
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Header -->
+    	<div class="header">
+            <div class="container">
+    	    	<h1 class='container-heading'><span>Arabic Tweets Classifier</span> using NLP</h1>
+                <br>
+                <div class='description'>
+    			    <p>A Deep Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		    </div>
+            </div>
+    	</div>
+
+        
+        <div class="table-container">
+            <table class="table table-bordered center" style="width: 45%; text-align: justify; text-align: center; vertical-align: middle">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:25%; text-align: center;">Examples</th>
+                        <th scope="col" style="width:75%; text-align: center;">Tweets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" style="text-align: center;">Noise</th>
+                        <td>اختصاصي تسويق </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="text-align: center;">Question</th>
+                        <td>السلام عليكم لدي عامل انتهي جواز السفر وتم تجديد الجواز ولكن لاسف لا استطيع عبر منصه ابشر تحديث بيانات الجواز الجديد كيف يتم ذلك </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="text-align: center;">Answer</th>
+                        <td>ادخلي ابشر بعدين خدمات بعدين الاحوال المدنيه بعدين المعلومات الشخصيه وتلقينه موجود  </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="text-align: center;">Comment</th>
+                        <td>عندي نفس المشكله مع اني فعلت وجتني رساله التفعيل</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="text-align: center;">Repeated</th>
+                        <td>فرجتمعابشر رب اسره ويعيش في ضروف صعبه وحاله مايعلم فيها الا اله سبحانه فاتوره التنفيذ القضائي 2174683749 الحمدله المبلغ في نزول اله يبارك بماله ويصلح له نيته وذريته من سد ومن ساهم في النشر منصهاحسان فرجت </td>
+                    </tr>
+                    
+                </tbody>
+            </table>    
+        </div>
+        <!-- Text Area -->
+
+    	<div class="dl-container">
+    		<form action="{{ url_for('predict') }}" method="POST">
+        		<textarea class='message-box' name="tweet" rows="10" cols="90" wrap = "hard" placeholder="Enter your Tweet here..."></textarea><br/>
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+    	</div>
+        
+        
+        <!-- Footer -->
+        <div class='footer'>
+            <div class="contact">
+                <a target="_blank" href="https://github.com/abeer-saleh/arabic-tweets-nlp">
+                    <i class="fab fa-github fa-lg contact-icon"></i>
+                </a>
+            </div>
+           
+            <p class='footer-description'>&nbsp;&nbsp;<b> Made with ❤️ by Abeer & Haneen & Nouf.</b></p>
+        </div>
+
+    </body>
+</html>

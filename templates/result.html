@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en,ar" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Capstone Project</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='Tsunami-favicon.ico') }}"> #????
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <!-- Header -->
+    	<div class="header">
+            <div class="container">
+    	    	<h2 class='container-heading'><span>Arabic Tweets Classifier</span> using NLP</h2>
+                <div class='description'>
+    			    <p>A Deep Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		    </div>
+            </div>
+    	</div>
+
+		<!-- Result -->
+		<div class="results">
+			{% if prediction==0 %}
+				<h1>Prediction: <span class='danger'>This is a Noise tweet.</span></h1>
+                <br>
+				<img class="gif" src="{{ url_for('static', filename='noise.jpeg') }}" alt="Noise image">
+			{% elif prediction==1 %}
+				<h1>Prediction: <span class='safe'>This is a Question tweet.</span></h1>
+				<br>
+                <img class="gif" src="{{ url_for('static', filename='question.jpeg') }}" alt="Question image">
+            {% elif prediction==2 %}
+                <h1>Prediction: <span class='safe'>This is an Answer tweet.</span></h1>
+                <br>
+                <img class="gif" src="{{ url_for('static', filename='answer.jpeg') }}" alt="Answer image">
+            {% elif prediction==3 %}
+                <h1>Prediction: <span class='safe'>This is a Comment tweet.</span></h1>
+                <br>
+                <img class="gif" src="{{ url_for('static', filename='comment.jpeg') }}" alt="Comment image">
+            {% elif prediction==4 %}
+                <h1>Prediction: <span class='safe'>This is a Repeated tweet.</span></h1>
+                <br>
+                <img class="gif" src="{{ url_for('static', filename='repeated.jpeg') }}" alt="Repeated image">
+			{% endif %}
+		</div>
+
+        <div class="dl-container">
+    		<form action="{{ url_for('home') }}">
+        		<input type="submit" class="my-cta-button" value="Home">
+        	</form>
+    	</div>
+
+        <!-- Footer -->
+        <div class='footer'>
+            <div class="contact">
+                <a target="_blank" href="https://github.com/abeer-saleh/arabic-tweets-nlp">
+                    <i class="fab fa-github fa-lg contact-icon"></i>
+                </a>
+            </div>
+            
+            <p class='footer-description'> &nbsp; <b> Made with ❤️ by by Abeer & Haneen & Nouf.</b></p>
+        </div>
+
+    </body>
+</html>
